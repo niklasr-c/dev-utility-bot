@@ -4,7 +4,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { Command } from './types/command';
 import { prisma } from './database/prisma';
-import * as http from 'http';
 
 console.log("🚀 Starte Bot...");
 
@@ -83,22 +82,4 @@ client.on(Events.InteractionCreate, async interaction => {
   }
 });
 
-// --- Dummy Web-Server für Render ---
-// Render verlangt einen offenen Port, sonst killt es den Bot.
-const port = process.env.PORT || 3000;
-http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Dev-Utility-Bot is alive and running!\n');
-}).listen(port, () => {
-    console.log(`✅ Dummy-Server gestartet auf Port ${port}`);
-});
-
-//client.login(env.DISCORD_TOKEN);
-
-// Den Debug-Modus einschalten (gibt jede Netzwerk-Aktion im Log aus)
-client.on('debug', (info) => console.log(`[DISCORD DEBUG]: ${info}`));
-
-// Login mit Fehler-Falle
-client.login(env.DISCORD_TOKEN)
-  .then(() => console.log('✅ Login-Anfrage erfolgreich an Discord gesendet!'))
-  .catch(err => console.error('❌ FATALER LOGIN-FEHLER:', err));
+client.login(env.DISCORD_TOKEN);
