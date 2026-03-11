@@ -93,4 +93,12 @@ http.createServer((req, res) => {
     console.log(`✅ Dummy-Server gestartet auf Port ${port}`);
 });
 
-client.login(env.DISCORD_TOKEN);
+//client.login(env.DISCORD_TOKEN);
+
+// Den Debug-Modus einschalten (gibt jede Netzwerk-Aktion im Log aus)
+client.on('debug', (info) => console.log(`[DISCORD DEBUG]: ${info}`));
+
+// Login mit Fehler-Falle
+client.login(env.DISCORD_TOKEN)
+  .then(() => console.log('✅ Login-Anfrage erfolgreich an Discord gesendet!'))
+  .catch(err => console.error('❌ FATALER LOGIN-FEHLER:', err));
