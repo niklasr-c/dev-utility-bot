@@ -1,0 +1,20 @@
+// Das sagt Prisma, dass wir TypeScript-Code generieren wollen
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Hier definieren wir SQLite als unsere Datenbank
+datasource db {
+  provider = "sqlite"
+}
+
+// -------------------------------------------------
+// Unsere Datenbank-Tabellen (Models)
+// -------------------------------------------------
+
+// Tabelle: Zählt mit, wie oft ein Command genutzt wurde
+model CommandStat {
+  name      String   @id // Der Name des Commands (z.B. "ping") ist unser eindeutiger Schlüssel
+  uses      Int      @default(0) // Startet bei 0
+  updatedAt DateTime @updatedAt // Speichert automatisch, wann das letzte Update war
+}
