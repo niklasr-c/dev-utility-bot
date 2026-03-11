@@ -22,15 +22,14 @@
   "homepage": "https://github.com/niklasr-c/dev-utility-bot#readme",
   "dependencies": {
     "@napi-rs/canvas": "^0.1.96",
-    "@prisma/adapter-better-sqlite3": "^7.4.2",
+    "@neondatabase/serverless": "^1.0.2",
+    "@prisma/adapter-neon": "^7.4.2",
     "@prisma/client": "^7.4.2",
-    "better-sqlite3": "^12.6.2",
     "discord.js": "^14.25.1",
     "dotenv": "^17.3.1",
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^25.4.0",
     "eslint": "^10.0.3",
     "nodemon": "^3.1.14",

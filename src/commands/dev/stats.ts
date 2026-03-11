@@ -26,7 +26,7 @@ export const command: Command = {
       .addFields(
         { name: '🏆 Top Commands', value: statsText }
       )
-      .setFooter({ text: 'Datenbank: SQLite + Prisma' })
+      .setFooter({ text: 'Datenbank: PostgreSQL + Prisma' })
       .setTimestamp();
 
     await interaction.reply({ embeds: [embed] });
